@@ -27,3 +27,9 @@
 *.exe
 *.out
 *.app
+
+# QT
+*.pro.user
+*Debug*
+*debug*
+Taggoo
