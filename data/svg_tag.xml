@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tags>
+	<tag name="Vidéos">
+		<file type="directory" path="/home/Vidéos"/>
+		<file type="" path=""/>
+	</tag>
+	<tag name="Musiques">
+		<file type="directory" path="/home/Vidéos"/>
+	</tag>
+	<tag name="Jeux">
+		<file type="file" path="/home/Jeux"/>
+	</tag>
+</tags>
