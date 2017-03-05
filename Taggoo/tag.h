@@ -62,7 +62,6 @@ public:
 private:
     std::string name_;
     std::vector<File*> fileList_;
-    std::vector<int> freeIndexes_; // When a file is deleted, it's replace with NULL pointer and its index is add in this list
 };
 
 #endif // TAG_H

@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
     /*
      * These line are used to fix character encoding problems of compatibility with older
-     * version of Qt (< v4). If you own a Qt version 5 or more please let these line commented.
+     * version of Qt (< v4). If you have a Qt version 5 or more please let these lines commented.
     */
     //QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     //QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));

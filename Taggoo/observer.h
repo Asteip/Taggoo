@@ -1,8 +1,6 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-#include <QMainWindow>
-
 class Subject; // fix cyclic dependencies
 
 /**

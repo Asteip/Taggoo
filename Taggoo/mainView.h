@@ -1,6 +1,13 @@
 #ifndef MAINVIEW_H
 #define MAINVIEW_H
 
+// QT LIBRARY
+#include <QWidget>
+#include <QMainWindow>
+#include <QDesktopWidget>
+#include <QLayout>
+#include <QSplitter>
+
 #include "observer.h"
 
 /**
@@ -32,7 +39,27 @@ public:
     virtual void refresh();
 
 private:
+    /*
+     * Creation of the main widget.
+     */
+    void createCentralWidget();
+
+    /*
+     * Connect signals with controller's slots.
+     */
+    void createUserEvent();
+
+private:
     Subject* controller_;
+
+    // QT OBJECT : Central widget
+    QWidget *mainWidget_;
+    QWidget *leftWidget_;
+    QWidget *centerWidget_;
+
+    QHBoxLayout *mainLayout;
+    QVBoxLayout *leftLayout;
+    QVBoxLayout *centerLayout;
 };
 
 #endif // MAINVIEW_H
