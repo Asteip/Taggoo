@@ -1,5 +1,7 @@
 #include <QApplication>
 #include <QTextCodec>
+#include "mainView.h"
+#include "controller.h"
 
 /**
  * @brief Lanceur de l'application.
@@ -16,7 +18,9 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
 
-    // Create Observer, subject, etc.
+    Subject *controller = new Controller();
+    Observer *mainView = new MainView(controller);
+    controller->addObserver(*mainView);
 
     return app.exec();
 }

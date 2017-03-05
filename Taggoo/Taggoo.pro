@@ -4,10 +4,12 @@ SOURCES += app.cpp \
     subject.cpp \
     mainView.cpp \
     controller.cpp \
-    tag.cpp
+    tag.cpp \
+    file.cpp
 
 HEADERS += observer.h \
     subject.h \
     mainView.h \
     controller.h \
-    tag.h
+    tag.h \
+    file.h

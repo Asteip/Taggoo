@@ -1,6 +1,6 @@
 #include "controller.h"
 
-Controller::Controller() : Subject(){
+Controller::Controller(){
 
 }
 

@@ -32,7 +32,7 @@ public:
     virtual void refresh();
 
 private:
-
+    Subject* controller_;
 };
 
 #endif // MAINVIEW_H

@@ -1,6 +1,6 @@
 #include "mainView.h"
 
-MainView::MainView(Subject* subject) : Observer(subject){
+MainView::MainView(Subject* subject) : controller_(subject){
 
 }
 
