@@ -16,9 +16,7 @@ MainView::MainView(Subject* subject) : controller_(subject){
     show();
 }
 
-MainView::~MainView(){
-
-}
+MainView::~MainView(){}
 
 void MainView::refresh(){
 

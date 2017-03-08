@@ -52,10 +52,15 @@ private:
 private:
     Subject* controller_;
 
-    // QT OBJECT : Central widget
+    // QT OBJECTS : Central widget
+
     QWidget *mainWidget_;
+
     QWidget *leftWidget_;
+
     QWidget *centerWidget_;
+    QWidget *navigationBarWidget_;
+
 
     QHBoxLayout *mainLayout;
     QVBoxLayout *leftLayout;
