@@ -3,30 +3,27 @@
 Tag::Tag(QString name) : name_(name){}
 
 File * Tag::getFile(unsigned int index){
-    if(index < fileList_.size()){
-        return fileList_[index];
-    }
-    else{
+    if(index < files_.size())
+        return files_[index];
+    else
         return NULL;
-    }
 }
 
 void Tag::addFile(File *file){
-    if(!containsFile(file)){
-        fileList_.push_back(file);
-    }
+    if(!containsFile(file))
+        files_.push_back(file);
 }
 
 void Tag::removeFile(File *file){
-    fileList_.erase(std::remove(fileList_.begin(), fileList_.end(), file), fileList_.end());
+    files_.erase(std::remove(files_.begin(), files_.end(), file), files_.end());
 }
 
 bool Tag::containsFile(File *file){
-    return std::find(fileList_.begin(), fileList_.end(), file) != fileList_.end();;
+    return std::find(files_.begin(), files_.end(), file) != files_.end();;
 }
 
 int Tag::countFile(){
-    return fileList_.size();
+    return files_.size();
 }
 
 QString Tag::getName(){

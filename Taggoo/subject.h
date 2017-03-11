@@ -50,12 +50,6 @@ public:
      */
     virtual void notify() = 0;
 
-    // TODO comments these methods :
-
-    virtual void readXml() = 0;
-    virtual void writeXml() = 0;
-
-
 public slots:
     // METHODS FOR EACH EVENTS...
 

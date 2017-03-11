@@ -4,8 +4,8 @@
 #include <vector>
 #include <QtXml>
 #include <QString>
+#include <QDebug>
 #include "subject.h"
-#include "tag.h"
 #include "xmldatareader.h"
 
 /**
@@ -61,21 +61,27 @@ public:
      */
     virtual void notify();
 
-    // TODO comment these methods
-
-    virtual void readXml();
-    virtual void writeXml();
-
 public slots:
     // METHODS FOR EACH EVENTS...
 
 private:
-    std::vector<Observer*> observers_; // list of observer listening to the subject
-    std::vector<Tag*> existTags_;  // list of existing tags in the system
-    std::vector<Tag*> usingTags_; // list of current tags used by the filter
+    /*
+     * Reads the data file.
+     */
+    virtual void readXml();
 
-    QString currentDir_; // path of the current directory
-    QString dataFile_; // path of the xml file which stores all the datas
+    /*
+     * Write into the data file.
+     */
+    virtual void writeXml();
+
+private:
+    std::vector<Observer*> observers_; // list of observer listening to the subject
+    std::vector<Tag*> usingTags_; // list of current tags used by the filter
+    QString currentDir_; // current directory if their is no search in progress
+
+    Data * data_; // persistent data (home directory and tags)
+    QString dataFile_; // path of the xml data file for persistence
 
 };
 
