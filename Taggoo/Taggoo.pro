@@ -1,5 +1,6 @@
 QT += widgets\
-    xml
+    xml\
+    core
 SOURCES += app.cpp \
     observer.cpp \
     subject.cpp \
@@ -7,7 +8,8 @@ SOURCES += app.cpp \
     controller.cpp \
     tag.cpp \
     file.cpp \
-    xmldatareader.cpp
+    xmldatareader.cpp \
+    data.cpp
 
 HEADERS += observer.h \
     subject.h \
@@ -15,4 +17,5 @@ HEADERS += observer.h \
     controller.h \
     tag.h \
     file.h \
-    xmldatareader.h
+    xmldatareader.h \
+    data.h

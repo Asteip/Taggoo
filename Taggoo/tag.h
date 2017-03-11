@@ -1,9 +1,9 @@
 #ifndef TAG_H
 #define TAG_H
 
-#include <QString>
 #include <vector>
 #include <algorithm>
+#include <QString>
 #include "file.h"
 
 /**
@@ -16,8 +16,7 @@ class Tag{
 public:
     /**
      * @brief Create a tag.
-     * @param name The name of the tag. Each name is unique, the name is not
-     * sensitive to the case.
+     * @param name The name of the tag. Each name is unique.
      */
     Tag(QString name);
 
@@ -68,7 +67,7 @@ public:
 
 private:
     QString name_;
-    std::vector<File*> fileList_;
+    std::vector<File*> files_;
 };
 
 #endif // TAG_H

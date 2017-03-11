@@ -1,12 +1,16 @@
 #include "controller.h"
 
 Controller::Controller(){
-    currentDir_ = "/home"; // a prendre dans le fichier...
     dataFile_ = "../data/data.xml";
+    data_ = new Data;
+
+    readXml();
+
+    currentDir_ = data_->getHomePath();
 }
 
 Controller::~Controller(){
-
+    delete data_;
 }
 
 void Controller::addObserver(Observer &o){
@@ -25,16 +29,17 @@ void Controller::notify(){
 
 void Controller::readXml(){
     QFile file(dataFile_);
+    XmlDataReader xmlReader(data_);
 
     if(!file.open(QFile::ReadOnly | QFile::Text)){
-        qDebug() << "Cannot read file" << file.errorString();
+        qDebug() << "Cannot read file " << file.errorString();
         return;
     }
 
-    /*XmlDataReader xmlReader(existTags_);
-
     if (!xmlReader.read(&file))
-        qDebug() << "Parse error in file " << xmlReader.errorString();*/
+        qDebug() << "Parse error in file " << xmlReader.errorString();
+
+    file.close();
 }
 
 void Controller::writeXml(){
