@@ -31,10 +31,10 @@ void Controller::readXml(){
         return;
     }
 
-    XmlDataReader xmlReader(existTags_);
+    /*XmlDataReader xmlReader(existTags_);
 
     if (!xmlReader.read(&file))
-        qDebug() << "Parse error in file " << xmlReader.errorString();
+        qDebug() << "Parse error in file " << xmlReader.errorString();*/
 }
 
 void Controller::writeXml(){
