@@ -3,8 +3,9 @@
 #include "mainView.h"
 #include "controller.h"
 
-// POUR LES TESTS
-#include <iostream>
+
+#include "tag.h"
+#include "file.h"
 
 /**
  * @brief Lanceur de l'application.

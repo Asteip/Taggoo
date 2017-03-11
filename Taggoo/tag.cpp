@@ -1,6 +1,6 @@
 #include "tag.h"
 
-Tag::Tag(std::string name) : name_(name){}
+Tag::Tag(QString name) : name_(name){}
 
 File * Tag::getFile(unsigned int index){
     if(index < fileList_.size()){
@@ -25,10 +25,14 @@ bool Tag::containsFile(File *file){
     return std::find(fileList_.begin(), fileList_.end(), file) != fileList_.end();;
 }
 
-std::string Tag::getName(){
+int Tag::countFile(){
+    return fileList_.size();
+}
+
+QString Tag::getName(){
     return name_;
 }
 
-void Tag::setName(std::string name){
+void Tag::setName(QString name){
     name_ = name;
 }

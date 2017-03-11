@@ -3,8 +3,10 @@
 
 #include <vector>
 #include <QtXml>
+#include <QString>
 #include "subject.h"
 #include "tag.h"
+#include "xmldatareader.h"
 
 /**
  * @brief The controller class is the entry point of the application.
@@ -72,8 +74,8 @@ private:
     std::vector<Tag*> existTags_;  // list of existing tags in the system
     std::vector<Tag*> usingTags_; // list of current tags used by the filter
 
-    std::string currentDir_; // path of the current directory
-    std::string xmlTagLink_; // path of the xml file which stores the tags
+    QString currentDir_; // path of the current directory
+    QString dataFile_; // path of the xml file which stores all the datas
 
 };
 

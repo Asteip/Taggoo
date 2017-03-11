@@ -2,7 +2,6 @@
 #define SUBJECT_H
 
 #include <QObject>
-#include <string>
 #include "observer.h"
 
 /**

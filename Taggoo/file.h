@@ -1,50 +1,58 @@
 #ifndef FILE_H
 #define FILE_H
 
-#define TYPE_DIRECTORY 0
-#define TYPE_FILE 1
-
-#include <string>
-
+#include <QString>
 /**
- * @brief The File class
+ * @brief This class represents a file.
  */
 class File{
 
 public:
     /**
-     * @brief File
-     * @param path
-     * @param type
+     * @brief The file is a directory.
      */
-    File(std::string path, int type);
+    static const int TYPE_DIRECTORY;
 
     /**
-     * @brief getPath
-     * @return
+     * @brief The file is any type of file excepts a directory.
      */
-    std::string getPath();
+    static const int TYPE_FILE;
 
     /**
-     * @brief setPath
-     * @param Path
+     * @brief Create an instance of File.
+     * @param path The path of the file.
+     * @param type The type of the file. It must be one of these two types :
+     *      -File::TYPE_DIRECTORY
+     *      -File::TYPE_FILE
      */
-    void setPath(std::string Path);
+    File(QString path, int type);
 
     /**
-     * @brief getType
-     * @return
+     * @brief Returns the path of the file.
+     * @return The string path of the file.
+     */
+    QString getPath();
+
+    /**
+     * @brief Set the path of the file.
+     * @param The new path of the file.
+     */
+    void setPath(QString Path);
+
+    /**
+     * @brief Returns the type of the file (Directory or file).
+     * @return The type of the file.
      */
     int getType();
 
     /**
-     * @brief setType
-     * @param type
+     * @brief Set the type of the file (must be Directory or file).
+     * @param The new type of the file.
      */
     void setType(int type);
 
 private:
-    std::string path_;
+    QString path_;
     int type_;
 };
 

@@ -1,11 +1,8 @@
 #include "controller.h"
 
-//POUR LES TESTS
-#include <iostream>
-
 Controller::Controller(){
-    currentDir_ = "/home";
-    xmlTagLink_ = "../data/svg_tag.xml";
+    currentDir_ = "/home"; // a prendre dans le fichier...
+    dataFile_ = "../data/data.xml";
 }
 
 Controller::~Controller(){
@@ -27,23 +24,17 @@ void Controller::notify(){
 }
 
 void Controller::readXml(){
-    QDomDocument *dom = new QDomDocument("svg_tag");
+    QFile file(dataFile_);
 
-    QFile xml_doc(xmlTagLink_);
-
-    if(!xml_doc.open(QIODevice::ReadOnly)){
-
-        //QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être ouvert. Vérifiez que le nom est le bon et que le document est bien placé");
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        qDebug() << "Cannot read file" << file.errorString();
         return;
     }
-    if (!dom->setContent(&xml_doc)) // Si l'on n'arrive pas à associer le fichier XML à l'objet DOM.
-    {
-            xml_doc.close();
-            QMessageBox::warning(this,"Erreur à l'ouverture du document XML","Le document XML n'a pas pu être attribué à l'objet QDomDocument.");
-            return;
-    }
-    xml_doc.close(); // Dans tous les cas, on doit fermer le document XML : on n'en a plus besoin, tout est compris dans l'objet DOM.
 
+    XmlDataReader xmlReader(existTags_);
+
+    if (!xmlReader.read(&file))
+        qDebug() << "Parse error in file " << xmlReader.errorString();
 }
 
 void Controller::writeXml(){

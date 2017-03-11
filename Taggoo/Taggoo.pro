@@ -6,11 +6,13 @@ SOURCES += app.cpp \
     mainView.cpp \
     controller.cpp \
     tag.cpp \
-    file.cpp
+    file.cpp \
+    xmldatareader.cpp
 
 HEADERS += observer.h \
     subject.h \
     mainView.h \
     controller.h \
     tag.h \
-    file.h
+    file.h \
+    xmldatareader.h

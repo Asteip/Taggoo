@@ -1,7 +1,10 @@
 #include "file.h"
 
-File::File(std::string path, int type){
-    if(type == TYPE_DIRECTORY || type == TYPE_FILE){
+const int File::TYPE_DIRECTORY = 0;
+const int File::TYPE_FILE = 1;
+
+File::File(QString path, int type){
+    if(type == File::TYPE_DIRECTORY || type == File::TYPE_FILE){
         path_ = path;
         type_ = type;
     }
@@ -10,11 +13,11 @@ File::File(std::string path, int type){
     }
 }
 
-std::string File::getPath(){
+QString File::getPath(){
     return path_;
 }
 
-void File::setPath(std::string path){
+void File::setPath(QString path){
     path_ = path;
 }
 
@@ -23,7 +26,7 @@ int File::getType(){
 }
 
 void File::setType(int type){
-    if(type == TYPE_DIRECTORY || type == TYPE_FILE){
+    if(type == File::TYPE_DIRECTORY || type == File::TYPE_FILE){
         type_ = type;
     }
     else{

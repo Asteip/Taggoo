@@ -1,7 +1,7 @@
 #ifndef TAG_H
 #define TAG_H
 
-#include <string>
+#include <QString>
 #include <vector>
 #include <algorithm>
 #include "file.h"
@@ -9,58 +9,65 @@
 /**
  * @brief This class represents a tag.
  * @details A tag is represented by its name and a list of file
- * that have this tag. Files are represented by their absolute path.
+ * that are bound to this tag.
  */
 class Tag{
 
 public:
     /**
      * @brief Create a tag.
-     * @param name The name of the tag. Each name are unique, the name is not
+     * @param name The name of the tag. Each name is unique, the name is not
      * sensitive to the case.
      */
-    Tag(std::string name);
+    Tag(QString name);
 
     /**
-     * @brief getFile
-     * @param index
-     * @return
+     * @brief Returns the file at the specified position.
+     * @param index The position of the file in the list of files.
+     * @return An object file. Null if the file is not found.
      */
     File * getFile(unsigned int index);
 
     /**
-     * @brief addFile
-     * @param file
+     * @brief Add a file in the list of files if it not already exists.
+     * @param file The file object passed by pointer.
      */
     void addFile(File *file);
 
     /**
-     * @brief removeFile
-     * @param file
+     * @brief Remove a file from the list of files. If the file does not exists,
+     * nothing happen.
+     * @param file The file object passed by pointer.
      */
     void removeFile(File *file);
 
     /**
-     * @brief containsFile
-     * @param file
-     * @return
+     * @brief Check if the list of files contains the file.
+     * @param file The file object passed by pointer.
+     * @return True if the file exists, false otherwise.
      */
     bool containsFile(File *file);
 
     /**
-     * @brief getName
-     * @return
+     * @brief Returns the number of file.
+     * @return The size of the list of files.
      */
-    std::string getName();
+    int countFile();
 
     /**
-     * @brief setName
-     * @param name
+     * @brief Returns the name of the tag.
+     * @return The name of the tag.
      */
-    void setName(std::string name);
+    QString getName();
+
+    /**
+     * @brief Modify the name of the tag.
+     * @param name The new name of the tag.
+     */
+    void setName(QString name);
 
 private:
-    std::string name_;
+    QString name_;
     std::vector<File*> fileList_;
 };
 
