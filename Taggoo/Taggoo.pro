@@ -1,4 +1,5 @@
-QT += widgets
+QT += widgets\
+    xml
 SOURCES += app.cpp \
     observer.cpp \
     subject.cpp \

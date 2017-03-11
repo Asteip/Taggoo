@@ -2,6 +2,7 @@
 #define CONTROLLER_H
 
 #include <vector>
+#include <QtXml>
 #include "subject.h"
 #include "tag.h"
 
@@ -58,6 +59,11 @@ public:
      */
     virtual void notify();
 
+    // TODO comment these methods
+
+    virtual void readXml();
+    virtual void writeXml();
+
 public slots:
     // METHODS FOR EACH EVENTS...
 
@@ -65,6 +71,9 @@ private:
     std::vector<Observer*> observers_; // list of observer listening to the subject
     std::vector<Tag*> existTags_;  // list of existing tags in the system
     std::vector<Tag*> usingTags_; // list of current tags used by the filter
+
+    std::string currentDir_; // path of the current directory
+    std::string xmlTagLink_; // path of the xml file which stores the tags
 
 };
 

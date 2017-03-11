@@ -3,6 +3,9 @@
 #include "mainView.h"
 #include "controller.h"
 
+// POUR LES TESTS
+#include <iostream>
+
 /**
  * @brief Lanceur de l'application.
  */
@@ -21,6 +24,12 @@ int main(int argc, char *argv[])
     Subject *controller = new Controller();
     Observer *mainView = new MainView(controller);
     controller->addObserver(*mainView);
+
+    //POUR LES TESTS
+
+
+
+    // -------------
 
     return app.exec();
 }

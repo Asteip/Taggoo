@@ -1,7 +1,7 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-class Subject; // fix cyclic dependencies
+class Subject; // allows to fix cyclic dependencies
 
 /**
  * @brief The Observer class is the base class of the different view of the application.
