@@ -2,7 +2,10 @@
 #define SUBJECT_H
 
 #include <QObject>
+#include <QString>
+#include <vector>
 #include "observer.h"
+#include "data.h"
 
 /**
  * @brief This class represents an observable object, or "data" in the observer pattern.
@@ -50,8 +53,20 @@ public:
      */
     virtual void notify() = 0;
 
+    // TODO comments these methods.
+
+    virtual Data * getData() = 0;
+
 public slots:
-    // METHODS FOR EACH EVENTS...
+    virtual void createTag(QString name) = 0;
+    virtual void removeTag(QString name) = 0;
+    virtual void setTag(QString name) = 0;
+    virtual void assignTag(QString name, QString file) = 0;
+    virtual void assignTag(QString name, std::vector<QString> files) = 0;
+    virtual void unassignTag(QString name, QString file) = 0;
+    virtual void unassignTag(QString name, std::vector<QString> files) = 0;
+    virtual void searchByTag(std::vector<QString> tags) = 0;
+    virtual void openDirectory(QString name) = 0;
 
 };
 

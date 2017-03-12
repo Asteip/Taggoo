@@ -30,6 +30,47 @@ void Controller::notify(){
     }
 }
 
+Data * Controller::getData(){
+
+    return NULL;
+}
+
+void Controller::createTag(QString name){
+
+}
+
+void Controller::removeTag(QString name){
+
+}
+
+void Controller::setTag(QString name){
+
+}
+
+void Controller::assignTag(QString name, QString file){
+
+}
+
+void Controller::assignTag(QString name, std::vector<QString> files){
+
+}
+
+void Controller::unassignTag(QString name, QString file){
+
+}
+
+void Controller::unassignTag(QString name, std::vector<QString> files){
+
+}
+
+void Controller::searchByTag(std::vector<QString> tags){
+
+}
+
+void Controller::openDirectory(QString name){
+
+}
+
 void Controller::readXml(){
     QFile file(dataFile_);
     XmlDataReader xmlReader(data_);

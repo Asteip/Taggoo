@@ -62,8 +62,20 @@ public:
      */
     virtual void notify();
 
+    // TODO comments these methods.
+
+    virtual Data * getData();
+
 public slots:
-    // METHODS FOR EACH EVENTS...
+    virtual void createTag(QString name);
+    virtual void removeTag(QString name);
+    virtual void setTag(QString name);
+    virtual void assignTag(QString name, QString file);
+    virtual void assignTag(QString name, std::vector<QString> files);
+    virtual void unassignTag(QString name, QString file);
+    virtual void unassignTag(QString name, std::vector<QString> files);
+    virtual void searchByTag(std::vector<QString> tags);
+    virtual void openDirectory(QString name);
 
 private:
     /*
