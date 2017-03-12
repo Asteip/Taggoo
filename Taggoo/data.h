@@ -8,6 +8,7 @@
 
 /**
  * @brief The Data class is a structure of persistent data.
+ * @author Alexis
  */
 class Data{
 public:
@@ -18,46 +19,49 @@ public:
     Data();
 
     /**
-     * @brief getTag
-     * @param index
-     * @return
+     * @brief Returns the tag at the specified index.
+     * @pre If the index is over than the max range of the list,
+     * NULL will be returned.
+     * @param index The position of the tag in the list.
+     * @return A tag object.
      */
     Tag * getTag(unsigned int index);
 
     /**
-     * @brief addTag
-     * @param tag
+     * @brief Add a tag into the tag list.
+     * @param tag The tag added at the end of the list.
      */
     void addTag(Tag *tag);
 
     /**
-     * @brief removeTag
-     * @param tag
+     * @brief Remove a tag from the tag list.
+     * @param tag The tag removed from the list.
      */
     void removeTag(Tag *tag);
 
     /**
-     * @brief containsTag
-     * @param tag
-     * @return
+     * @brief Check if a tag belong to the tag list.
+     * @param tag The tag which have to be tested.
+     * @return True if the tag is in the list, false otherwise.
      */
     bool containsTag(Tag *tag);
 
     /**
-     * @brief countTag
-     * @return
+     * @brief Returns the number of item in the tag list.
+     * @return The number of item.
      */
     int countTag();
 
     /**
-     * @brief getHomePath
-     * @return
+     * @brief Returns the home path defined by the user.
+     * @details The home path can be any directory defined by user.
+     * @return A string which represents a path of the home directory.
      */
     QString getHomePath();
 
     /**
-     * @brief setHomePath
-     * @param homePath
+     * @brief Set the home path.
+     * @param homePath The new home path.
      */
     void setHomePath(QString homePath);
 

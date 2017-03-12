@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<data>
-	<homepath>/home</homepath>
-
-	<tag name="Vidéos">
-		<file type="directory" path="/home/Vidéos"/>
-		<file type="file" path="/home/Vidéos/drole.mp4"/>
-	</tag>
-	<tag name="Musiques">
-		<file type="directory" path="/home/Musiques"/>
-	</tag>
-	<tag name="Jeux">
-		<file type="file" path="/home/Jeux.exe"/>
-	</tag>
-</data>
+<?xml version="1.0" encoding="UTF-8"?><data><homepath>/home</homepath><tag name="Vidéos"><file type="directory" path="/home/Vidéos"/><file type="file" path="/home/Vidéos/drole.mp4"/></tag><tag name="Musiques"><file type="directory" path="/home/Musiques"/></tag><tag name="Jeux"><file type="file" path="/home/Jeux.exe"/></tag></data>

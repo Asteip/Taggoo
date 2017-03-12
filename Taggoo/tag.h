@@ -10,6 +10,7 @@
  * @brief This class represents a tag.
  * @details A tag is represented by its name and a list of file
  * that are bound to this tag.
+ * @author Alexis
  */
 class Tag{
 
