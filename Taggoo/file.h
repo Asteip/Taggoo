@@ -4,6 +4,7 @@
 #include <QString>
 /**
  * @brief This class represents a file.
+ * @author Alexis
  */
 class File{
 

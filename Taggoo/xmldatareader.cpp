@@ -70,12 +70,12 @@ void XmlDataReader::readFileList(Tag *tag){
             QString type = reader_.attributes().value("type").toString();
             QString path = reader_.attributes().value("path").toString();
 
-            if(type == "directory")
+            if(type == "directory" && path != "")
                 file = new File(path, File::TYPE_DIRECTORY);
-            else if(type == "file")
+            else if(type == "file" && path != "")
                 file = new File(path, File::TYPE_FILE);
             else
-                reader_.raiseError(QObject::tr("Error when parsing the data file : a file does not have an accepted type."));
+                reader_.raiseError(QObject::tr("Error when parsing the data file : a file does not have an accepted type or have a null path."));
 
             if(file != NULL)
                 tag->addFile(file);

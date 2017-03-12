@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "subject.h"
 #include "xmldatareader.h"
+#include "xmldatawriter.h"
 
 /**
  * @brief The controller class is the entry point of the application.

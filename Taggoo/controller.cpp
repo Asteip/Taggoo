@@ -6,7 +6,10 @@ Controller::Controller(){
 
     readXml();
 
-    currentDir_ = data_->getHomePath();
+    if(data_->getHomePath() != NULL && data_->getHomePath() != "")
+        currentDir_ = data_->getHomePath();
+    else
+        currentDir_ = "/"; // TODO Check for operating system...
 }
 
 Controller::~Controller(){
@@ -43,5 +46,36 @@ void Controller::readXml(){
 }
 
 void Controller::writeXml(){
+    QFile oldFile(dataFile_);
+    QFile newFile(dataFile_ + "~");
+    XmlDataWriter xmlWriter(data_);
 
+    if(!newFile.open(QFile::WriteOnly)){
+        qDebug() << "Cannot write file " << newFile.errorString();
+        return;
+    }
+
+    xmlWriter.write(&newFile);
+
+    // In case of crash during the writing operation, the old file and the new file
+    // are saved. The old file will be open at the next session.
+
+    oldFile.remove();
+    newFile.rename(dataFile_);
+
+    oldFile.close();
+    newFile.close();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

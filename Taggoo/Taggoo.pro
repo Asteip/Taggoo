@@ -9,7 +9,8 @@ SOURCES += app.cpp \
     tag.cpp \
     file.cpp \
     xmldatareader.cpp \
-    data.cpp
+    data.cpp \
+    xmldatawriter.cpp
 
 HEADERS += observer.h \
     subject.h \
@@ -18,4 +19,5 @@ HEADERS += observer.h \
     tag.h \
     file.h \
     xmldatareader.h \
-    data.h
+    data.h \
+    xmldatawriter.h
