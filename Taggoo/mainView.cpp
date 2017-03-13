@@ -61,9 +61,18 @@ void MainView::createCentralWidget(){
     leftTopLayout_->addWidget(createTagButton_);
 
     for (int i = 0 ; i < controller_->getData()->countTag() ; ++i){
+        QHBoxLayout *tagLayout = new QHBoxLayout;
+        QWidget *tagWidget = new QWidget;
         QPushButton *tagButton = new QPushButton(controller_->getData()->getTag(i)->getName());
+        QPushButton *editButton = new QPushButton(QIcon("../img/edit.png"),"");
+        QPushButton *deleteButton = new QPushButton(QIcon("../img/delete.png"),"");
+        tagLayout->addWidget(tagButton);
+        tagLayout->addWidget(editButton);
+        tagLayout->addWidget(deleteButton);
+        tagWidget->setLayout(tagLayout);
+
         listTagButtons_.push_back(tagButton);
-        leftCenterLayout_->addWidget(tagButton);
+        leftCenterLayout_->addWidget(tagWidget);
     }
 
     leftLayout_->addWidget(leftTopWidget_);
@@ -110,5 +119,6 @@ void MainView::createCentralWidget(){
 }
 
 void MainView::createUserEvent(){
+
 
 }
