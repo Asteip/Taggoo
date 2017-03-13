@@ -7,6 +7,11 @@
 #include <QDesktopWidget>
 #include <QLayout>
 #include <QSplitter>
+#include <QTextEdit>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QScrollArea>
 
 #include "observer.h"
 
@@ -57,7 +62,6 @@ private:
     QWidget *mainWidget_;
 
     QWidget *leftWidget_;
-
     QWidget *centerWidget_;
     QWidget *navigationBarWidget_;
 
