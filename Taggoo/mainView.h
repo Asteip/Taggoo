@@ -12,8 +12,14 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QScrollArea>
+#include <QList>
+#include <QFileSystemModel>
+#include <QTreeView>
 
 #include "observer.h"
+#include "controller.h"
+
+class controller;
 
 /**
  * @brief The MainView class is the main window of the application.
@@ -59,16 +65,42 @@ private:
 
     // QT OBJECTS : Central widget
 
+    //main part
     QWidget *mainWidget_;
-
     QWidget *leftWidget_;
     QWidget *centerWidget_;
+    QHBoxLayout *mainLayout_;
+    QVBoxLayout *leftLayout_;
+    QVBoxLayout *centerLayout_;
+
+    //left part
+    QWidget *leftTopWidget_;
+    QWidget *leftCenterWidget_;
+    QVBoxLayout *leftTopLayout_;
+    QVBoxLayout *leftCenterLayout_;
+
+    QLineEdit *researchLineEdit_;
+    QPushButton *createTagButton_;
+    QList<QPushButton*> listTagButtons_;
+
+    //center part
     QWidget *navigationBarWidget_;
+    QScrollArea *selectTagWidget_;
+    QWidget *fileSystemWidget_;
+    QHBoxLayout *navigationBarLayout_;
+    QHBoxLayout *selectTagLayout_;
 
+    QLineEdit *pathLineEdit_;
+    QPushButton *currentPathButton_;
+    QPushButton *allFilesButton_;
+    QPushButton *returnButton_;
+    QPushButton *refreshButton_;
 
-    QHBoxLayout *mainLayout;
-    QVBoxLayout *leftLayout;
-    QVBoxLayout *centerLayout;
+    QLabel *labelTags_;
+
+    QFileSystemModel *fileSystemModel_;
+    QTreeView *fileSystemTree_;
+
 };
 
 #endif // MAINVIEW_H

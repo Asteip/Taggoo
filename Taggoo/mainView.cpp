@@ -23,96 +23,90 @@ void MainView::refresh(){
 }
 
 void MainView::createCentralWidget(){
+
+    QSplitter *splitter = new QSplitter();
+
+    // MAIN PART
     mainWidget_ = new QWidget;
     leftWidget_ = new QWidget;
     centerWidget_ = new QWidget;
+    mainLayout_ = new QHBoxLayout;
+    leftLayout_ = new QVBoxLayout;
+    centerLayout_ = new QVBoxLayout;
 
+    mainWidget_->setLayout(mainLayout_);
+    leftWidget_->setLayout(leftLayout_);
+    centerWidget_->setLayout(centerLayout_);
 
-    mainLayout = new QHBoxLayout;
-    leftLayout = new QVBoxLayout;
-    centerLayout = new QVBoxLayout;
-
-    leftWidget_->setLayout(leftLayout);
-    centerWidget_->setLayout(centerLayout);
-
-    QSplitter *splitter = new QSplitter();
     splitter->addWidget(leftWidget_);
     splitter->addWidget(centerWidget_);
 
-
-
-
-
-    //left part
-    QLineEdit *researchLineEdit = new QLineEdit;
-    researchLineEdit->setPlaceholderText("Rechercher un tag...");
-    QPushButton *bouton = new QPushButton(QIcon("../img/add.png"),"Créer un tag");
-    leftLayout->addWidget(researchLineEdit);
-    leftLayout->addWidget(bouton);
-
-    //center part
-
-    QHBoxLayout *navigationLayout = new QHBoxLayout;
-    centerLayout->addLayout(navigationLayout);
-    QLineEdit *pathLineEdit = new QLineEdit;
-    pathLineEdit->setPlaceholderText("/home");
-    QPushButton *currentPathButton = new QPushButton("home");
-    QPushButton *allFilesButton = new QPushButton("All Files");
-    QPushButton *returnButton = new QPushButton(QIcon("../img/61449.png"),"");
-    QPushButton *refreshButton = new QPushButton(QIcon("../img/refresh.png"),"");
-    navigationLayout->addWidget(pathLineEdit);
-    navigationLayout->addWidget(currentPathButton);
-    navigationLayout->addWidget(allFilesButton);
-    navigationLayout->addWidget(returnButton);
-    navigationLayout->addWidget(refreshButton);
-
-    QLabel *labelTags = new QLabel("Tag du (des) fichier(s) sélectioné(s) :") ;
-    centerLayout->addWidget(labelTags);
-
-    QWidget *fileTags = new QScrollArea();
-    centerLayout->addWidget(fileTags);
-
-
-
-
-
-
-    /*
-
-    QWidget *wnd = new QWidget;
-
-    QTextEdit *editor1 = new QTextEdit;
-    QTextEdit *editor2 = new QTextEdit;
-    QTextEdit *editor3 = new QTextEdit;
-
-    QSplitter *split1 = new QSplitter;
-    QSplitter *split2 = new QSplitter;
-
-    QVBoxLayout *layout = new QVBoxLayout;
-
-    QWidget *container = new QWidget;
-    QVBoxLayout *container_layout = new QVBoxLayout;
-
-    split1->addWidget(editor1);
-    split1->addWidget(editor2);
-
-    container_layout->addWidget(split1);
-    container->setLayout(container_layout);
-
-    split2->setOrientation(Qt::Vertical);
-    split2->addWidget(container);
-    split2->addWidget(editor3);
-
-    layout->addWidget(split2);
-
-    wnd->setLayout(layout);*/
-
-    /*mainLayout->addLayout(leftLayout);
-    mainLayout->addLayout(centerLayout);
-    */
-    mainLayout->addWidget(splitter);
-    mainWidget_->setLayout(mainLayout);
+    mainLayout_->addWidget(splitter);
     setCentralWidget(mainWidget_);
+
+    //LEFT PART
+    leftTopWidget_ = new QWidget;
+    leftCenterWidget_ = new QWidget;
+    leftTopLayout_ = new QVBoxLayout;
+    leftCenterLayout_ = new QVBoxLayout;
+
+    leftTopWidget_->setLayout(leftTopLayout_);
+    leftCenterWidget_->setLayout(leftCenterLayout_);
+
+    researchLineEdit_ = new QLineEdit;
+    researchLineEdit_->setPlaceholderText("Rechercher un tag...");
+    createTagButton_ = new QPushButton(QIcon("../img/add.png")," Créer un tag");
+
+    leftTopLayout_->addWidget(researchLineEdit_);
+    leftTopLayout_->addWidget(createTagButton_);
+
+    for (int i = 0 ; i < controller_->getData()->countTag() ; ++i){
+        QPushButton *tagButton = new QPushButton(controller_->getData()->getTag(i)->getName());
+        listTagButtons_.push_back(tagButton);
+        leftCenterLayout_->addWidget(tagButton);
+    }
+
+    leftLayout_->addWidget(leftTopWidget_);
+    leftLayout_->addWidget(leftCenterWidget_);
+
+    //CENTER PART
+    navigationBarWidget_ = new QWidget;
+    selectTagWidget_ = new QScrollArea;
+    fileSystemWidget_ = new QWidget;
+    navigationBarLayout_ = new QHBoxLayout;
+    selectTagLayout_ = new QHBoxLayout;
+
+    navigationBarWidget_->setLayout(navigationBarLayout_);
+    selectTagWidget_->setLayout(selectTagLayout_);
+
+    //navigationBarWidget
+    pathLineEdit_ = new QLineEdit;
+    pathLineEdit_->setText("/home");
+    currentPathButton_ = new QPushButton("home");
+    allFilesButton_ = new QPushButton("All Files");
+    returnButton_ = new QPushButton(QIcon("../img/61449.png"),"");
+    refreshButton_ = new QPushButton(QIcon("../img/refresh.png"),"");
+
+    navigationBarLayout_->addWidget(pathLineEdit_);
+    navigationBarLayout_->addWidget(currentPathButton_);
+    navigationBarLayout_->addWidget(allFilesButton_);
+    navigationBarLayout_->addWidget(returnButton_);
+    navigationBarLayout_->addWidget(refreshButton_);
+
+    //selectTagWidget
+    labelTags_ = new QLabel("Tag du (des) fichier(s) sélectioné(s) :") ;
+    selectTagLayout_->addWidget(labelTags_);
+
+    //fileSystemWidget
+    fileSystemModel_ = new QFileSystemModel;
+    fileSystemModel_->setRootPath(QDir::currentPath());
+
+    fileSystemTree_ = new QTreeView(fileSystemWidget_);
+    fileSystemTree_->setModel(fileSystemModel_);
+
+    centerLayout_->addWidget(navigationBarWidget_);
+    centerLayout_->addWidget(selectTagWidget_);
+    centerLayout_->addWidget(fileSystemTree_);
 }
 
 void MainView::createUserEvent(){

@@ -31,8 +31,7 @@ void Controller::notify(){
 }
 
 Data * Controller::getData(){
-
-    return NULL;
+    return data_;
 }
 
 void Controller::createTag(QString name){
