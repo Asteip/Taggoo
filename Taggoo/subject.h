@@ -56,8 +56,6 @@ public:
     // TODO comments these methods.
 
     virtual Data * getData() = 0;
-
-public slots:
     virtual void createTag(QString name) = 0;
     virtual void removeTag(QString name) = 0;
     virtual void setTag(QString name) = 0;

@@ -49,6 +49,9 @@ public:
      */
     virtual void refresh();
 
+private slots:
+
+
 private:
     /*
      * Creation of the main widget.
