@@ -119,6 +119,42 @@ void MainView::createCentralWidget(){
 }
 
 void MainView::createUserEvent(){
+    this->connect(createTagButton_, SIGNAL(clicked()), this, SLOT(createTag()));
+}
 
+void MainView::createTag(){
 
 }
+
+void MainView::removeTag(){
+
+}
+
+void MainView::setTag(){
+
+}
+
+void MainView::assignTagOne(){
+
+}
+
+void MainView::assignTagAll(){
+
+}
+
+void MainView::unassignTagOne(){
+
+}
+
+void MainView::unassignTagAll(){
+
+}
+
+void MainView::searchByTag(){
+
+}
+
+void MainView::openDirectory(){
+
+}
+

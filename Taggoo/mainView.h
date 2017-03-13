@@ -3,7 +3,6 @@
 
 // QT LIBRARY
 #include <QWidget>
-#include <QMainWindow>
 #include <QDesktopWidget>
 #include <QLayout>
 #include <QSplitter>
@@ -15,6 +14,8 @@
 #include <QList>
 #include <QFileSystemModel>
 #include <QTreeView>
+
+#include <QDebug>
 
 #include "observer.h"
 #include "controller.h"
@@ -28,7 +29,9 @@ class controller;
  * features of Taggoo can be access by this window.
  * @author Alexis, Sitraka.
  */
-class MainView : public Observer, public QMainWindow{
+class MainView : public Observer{
+
+Q_OBJECT
 
 public:
     /**
@@ -49,8 +52,16 @@ public:
      */
     virtual void refresh();
 
-private slots:
-
+protected slots:
+    virtual void createTag();
+    virtual void removeTag();
+    virtual void setTag();
+    virtual void assignTagOne();
+    virtual void assignTagAll();
+    virtual void unassignTagOne();
+    virtual void unassignTagAll();
+    virtual void searchByTag();
+    virtual void openDirectory();
 
 private:
     /*
