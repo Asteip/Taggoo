@@ -62,18 +62,63 @@ public:
      */
     virtual void notify();
 
-    // TODO comments these methods.
-
+    /**
+     * @brief Returns a data object that contains the list of current tag and the current directory
+     * @return A tag object
+     */
     virtual Data * getData();
+
+    /**
+     * @brief Treats the action of create a tag : it creates a new tag in the current list in the data
+     * @param name The name of the new tag
+     */
     virtual void createTag(QString name);
+
+    /**
+     * @brief Treats the action of remove a tag : it removes a tag from the current list in the data
+     * @param name The tag which have to be removed
+     */
     virtual void removeTag(QString name);
+
+    /**
+     * @brief Treats the action of modify a tag in the current list in the data
+     * @param name The tag which have to be modified
+     */
     virtual void setTag(QString name);
+
+    /**
+     * @brief Treats the action of assign a tag to a file : a file is added in the list of file for the concerned tag
+     * @param name The name of the tag which is assigned to the file
+     * @param file The file we want to be assigned by the tag
+     */
     virtual void assignTag(QString name, QString file);
+
+    /**
+     * @brief Treats the action of assign a tag to a list of file : all file selected are added in the list of file for the concerned tag
+     * @param name The name of the tag which is assigned to the list of file
+     * @param files A vector that contains all file we want to be assigned by the tag
+     */
     virtual void assignTag(QString name, std::vector<QString> files);
+
+    /**
+     * @brief Treats the action of unassign a tag from a file : the file is no longer affected to the tag
+     * @param name The name of the tag we want to unassign
+     * @param file The file we want to be unassigned by the tag
+     */
     virtual void unassignTag(QString name, QString file);
+
+    /**
+     * @brief Treats the action of unassign a tag from a list of file : all file selected are removed in the list of file for the concerned tag
+     * @param name The name of the tag which is unassigned to the list of file
+     * @param files A vector that contains all file we want to be unassigned by the tag
+     */
     virtual void unassignTag(QString name, std::vector<QString> files);
+
+    /**
+     * @brief Treats the action of searching the files affected by the list of tag gave in parameters
+     * @param tags A vector that contains all tag selected by the user
+     */
     virtual void searchByTag(std::vector<QString> tags);
-    virtual void openDirectory(QString name);
 
 private:
     /*

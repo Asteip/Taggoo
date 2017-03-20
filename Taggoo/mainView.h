@@ -14,8 +14,8 @@
 #include <QList>
 #include <QFileSystemModel>
 #include <QTreeView>
-
-#include <QDebug>
+#include <QInputDialog>
+#include <QMessageBox>
 
 #include "observer.h"
 #include "controller.h"
@@ -53,15 +53,46 @@ public:
     virtual void refresh();
 
 protected slots:
+
+    /**
+     * @brief Add a new tag on the gui. Call the method createTag of controller
+     */
     virtual void createTag();
+
+    /**
+     * @brief Remove a tag on the gui. Call the method removeTag of controller
+     */
     virtual void removeTag();
+
+    /**
+     * @brief Modify a tag on the gui. Call the method setTag of controller
+     */
     virtual void setTag();
+
+    /**
+      @brief Add a tag in the list of assigned tag for a file. Call the method assignTag of controller
+     */
     virtual void assignTagOne();
+
+    /**
+     * @brief Add a tag int the list of assigned tag for a list of file. Call the method assignTag of controller
+     */
     virtual void assignTagAll();
+
+    /**
+     * @brief Remove a tag in the list of assigned tag for a file. Call the method unassignTag of controller
+     */
     virtual void unassignTagOne();
+
+    /**
+     * @brief Remove a tag int the list of assigned tag for a list of file. Call the method unassignTag of controller
+     */
     virtual void unassignTagAll();
+
+    /**
+     * @brief Display the result search interface with the list of file that correspond to the research. Call searchByTag in the controller
+     */
     virtual void searchByTag();
-    virtual void openDirectory();
 
 private:
     /*
@@ -95,7 +126,12 @@ private:
 
     QLineEdit *researchLineEdit_;
     QPushButton *createTagButton_;
+    QScrollArea *scrollTagArea_;
+    QList<QWidget*> listTagWidget_;
     QList<QPushButton*> listTagButtons_;
+    QList<QPushButton*> listEditButtons_;
+    QList<QPushButton*> listDeleteButtons_;
+    QList<QPushButton*> listAddTagButtons_;
 
     //center part
     QWidget *navigationBarWidget_;

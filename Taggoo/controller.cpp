@@ -35,11 +35,42 @@ Data * Controller::getData(){
 }
 
 void Controller::createTag(QString name){
+    bool exists = false;
+    int i = 0;
 
+    while(!exists && i < data_->countTag()){
+        if(data_->getTag(i)->getName() == name)
+            exists = true;
+
+        ++i;
+    }
+
+    if(!exists){
+        data_->addTag(new Tag(name));
+        writeXml();
+        notify();
+    }
 }
 
 void Controller::removeTag(QString name){
+    bool find = false;
+    int i = 0;
+    Tag *tagToRemove = NULL;
 
+    while(!find && i < data_->countTag()){
+        if(data_->getTag(i)->getName() == name){
+            tagToRemove = data_->getTag(i);
+            find = true;
+        }
+
+        ++i;
+    }
+
+    if(find){
+        data_->removeTag(tagToRemove);
+        writeXml();
+        notify();
+    }
 }
 
 void Controller::setTag(QString name){
@@ -63,10 +94,6 @@ void Controller::unassignTag(QString name, std::vector<QString> files){
 }
 
 void Controller::searchByTag(std::vector<QString> tags){
-
-}
-
-void Controller::openDirectory(QString name){
 
 }
 
